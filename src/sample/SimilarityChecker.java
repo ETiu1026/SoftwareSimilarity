@@ -9,11 +9,12 @@ import java.nio.file.Paths;
 
 public class SimilarityChecker {
 
+
+    public Metric counter;
     private static int SubmissionSize;
     private int idx=0;
     private String[] NamesString;
     private double[][] similarityScore;
-
 
     public double[][] getSimilarityScore() {
         return similarityScore;
@@ -29,9 +30,21 @@ public class SimilarityChecker {
     }
 
     public void run(){
+        counter= new Metric();
+        counter.uniqOperators++; //=
+        counter.uniqOperators++; //<
+        counter.uniqOperators++; //+
+        counter.uniqOperators++; //>
+        counter.uniqOperators++; // /
+        System.out.println("Unique operators:"+counter.uniqOperators);
+
+
         //Location of the file directory
         File folder = new File("C:\\Users\\Emerson Tiu\\IdeaProjects\\Module0\\assets\\submissions");
+
+
         SubmissionSize = folder.listFiles().length;
+
 
         //Contains all submissions
         String[] SubmissionString = new String[SubmissionSize];
@@ -43,6 +56,7 @@ public class SimilarityChecker {
         check(folder,SubmissionString,NamesString);
 
         //Print outs the string for each submission
+
         for(int i=0;i<SubmissionSize;i++){
 
             System.out.println(NamesString[i]+": \n"+SubmissionString[i]+"\n");
@@ -119,6 +133,7 @@ public class SimilarityChecker {
         double percentage=0;
         String[] fileA = file1.split("-");
         String[] fileB = file2.split("-");
+
 
         double difference = 0;
         if(fileA.length>=fileB.length){
