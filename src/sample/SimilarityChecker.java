@@ -15,6 +15,12 @@ public class SimilarityChecker {
     private int idx=0;
     private String[] NamesString;
     private double[][] similarityScore;
+    private String pathName;
+
+    public void setPathName(String name)
+    {
+        pathName=name;
+    }
 
     public double[][] getSimilarityScore() {
         return similarityScore;
@@ -40,7 +46,7 @@ public class SimilarityChecker {
 
 
         //Location of the file directory
-        File folder = new File("C:\\Users\\Emerson Tiu\\IdeaProjects\\Module0\\assets\\submissions");
+        File folder = new File(pathName);
 
 
         SubmissionSize = folder.listFiles().length;
