@@ -33,6 +33,6 @@
       </ScrollPane>
       <TextField fx:id="pathTextField" layoutX="29.0" layoutY="33.0" prefHeight="25.0" prefWidth="240.0" />
       <Button fx:id="generateBtn" layoutX="279.0" layoutY="33.0" mnemonicParsing="false" onAction="#generateTable" text="Generate" />
-      <Text fx:id="errorText" layoutX="29.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Path Invalid" />
+      <Text fx:id="errorText" fill="#ff0505" layoutX="29.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INVALID PATH" />
    </children>
 </Pane>

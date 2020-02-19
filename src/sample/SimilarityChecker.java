@@ -10,12 +10,15 @@ import java.nio.file.Paths;
 public class SimilarityChecker {
 
 
-    public Metric counter;
     private static int SubmissionSize;
     private int idx=0;
     private String[] NamesString;
     private double[][] similarityScore;
     private String pathName;
+
+    public  SimilarityChecker(){
+    }
+
 
     public void setPathName(String name)
     {
@@ -36,13 +39,6 @@ public class SimilarityChecker {
     }
 
     public void run(){
-        counter= new Metric();
-        counter.uniqOperators++; //=
-        counter.uniqOperators++; //<
-        counter.uniqOperators++; //+
-        counter.uniqOperators++; //>
-        counter.uniqOperators++; // /
-        System.out.println("Unique operators:"+counter.uniqOperators);
 
 
         //Location of the file directory
@@ -50,7 +46,6 @@ public class SimilarityChecker {
 
 
         SubmissionSize = folder.listFiles().length;
-
 
         //Contains all submissions
         String[] SubmissionString = new String[SubmissionSize];
@@ -142,20 +137,30 @@ public class SimilarityChecker {
 
 
         double difference = 0;
+
         if(fileA.length>=fileB.length){
             for(int i=0;i<fileB.length;i++){
-                if(fileA[i].compareTo(fileB[i])==0) difference++ /*PLACE SCORING HERE*/;
-                else difference--;
+                if(fileA[i].compareTo(fileB[i])==0) {
+                    difference++;
+                }
+
+                else {
+                    difference--;
+                    }
                 percentage=difference/fileB.length;
                 }
         }else{
             for(int i=0;i<fileA.length;i++){
-                if(fileB[i].compareTo(fileA[i])==0) difference++ /*PLACE SCORING HERE*/;
-                else difference--;
+                if(fileB[i].compareTo(fileA[i])==0) {
+
+                    difference++;
+                }
+                else {
+                    difference--;
+                }
             }
             percentage=difference/fileA.length;
         }
-
         return percentage;
     }
 

@@ -89,6 +89,7 @@ public class Controller {
             System.out.println("invalid path");
             errorText.setVisible(true);
         }
+
     }
 
     public void initialize(){
