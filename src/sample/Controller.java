@@ -26,12 +26,12 @@ public class Controller {
 
     public void generateTable(){
         try {
-            SimilarityChecker Main = new SimilarityChecker();
-            Main.setPathName(pathTextField.getText());
-            Main.run();
+            SimilarityChecker main = new SimilarityChecker();
+            main.setPathName(pathTextField.getText());
+            main.run();
 
-            double[][] scores = Main.getSimilarityScore();
-            String[] names = Main.getNamesString();
+            double[][] scores = main.getSimilarityScore();
+            String[] names = main.getNamesString();
             PairScore[] top5 = new PairScore[5];
 
             for(int i=0;i<5;i++)
@@ -39,17 +39,17 @@ public class Controller {
                 top5[i]= new PairScore();
             }
 
-            Text[][] label= new Text[Main.getSubmissionSize()][Main.getSubmissionSize()];
-            StackPane[][] stack = new StackPane[Main.getSubmissionSize()][Main.getSubmissionSize()];
+            Text[][] label= new Text[main.getSubmissionSize()][main.getSubmissionSize()];
+            StackPane[][] stack = new StackPane[main.getSubmissionSize()][main.getSubmissionSize()];
 
-            for(int i=1;i<Main.getSubmissionSize()+1;i++)
+            for(int i=1;i<main.getSubmissionSize()+1;i++)
             {
                 gridPane.add(new Text("     "+names[i-1]+"     "),i+1,1);
                 gridPane.add(new Text("  "+names[i-1]+"  "),1,i+1);
             }
-            for(int i=1;i<Main.getSubmissionSize()+1;i++)
+            for(int i=1;i<main.getSubmissionSize()+1;i++)
             {
-                for(int j=1;j<Main.getSubmissionSize()+1;j++){
+                for(int j=1;j<main.getSubmissionSize()+1;j++){
                     label[i-1][j-1]=new Text(" "+String.valueOf(scores[i-1][j-1])+" ");
 
                     if((i-1)!=(j-1))

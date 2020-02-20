@@ -25,6 +25,11 @@ public class SimilarityChecker {
         pathName=name;
     }
 
+    public String getPathName()
+    {
+        return pathName;
+    }
+
     public double[][] getSimilarityScore() {
         return similarityScore;
     }
